@@ -4,8 +4,8 @@ allow-lan: true
 mode: rule
 log-level: info
 keepalive: 25
-keep-alive-idle: 30
-keep-alive-interval: 30
+keep-alive-idle: 10
+keep-alive-interval: 15
 unified-delay: false
 geo-auto-update: true
 geo-update-interval: 168
@@ -76,8 +76,20 @@ sniffer:
       ports: [443, 8443, 2053, 2083, 2087, 2096]
     QUIC:
       ports: [443, 8443]
-
 proxies:
+#ShadowTLS        
+  - name: "🇩🇪 ShadowTLS-Proxy"
+    type: ss
+    server: net2026.safavidempire.org
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: "164c1a57-a952-4962-a848-77355f4864fc"
+    plugin: shadow-tls
+    plugin-opts:
+      host: www.google.com
+      password: "164c1a57-a952-4962-a848-77355f4864fc"
+      version: 3
+#AnyTLS
   - name: "🇩🇪 anytls-443"
     type: anytls
     server: 80.240.26.147
@@ -87,6 +99,236 @@ proxies:
     sni: "suiany.makingirangreatagain.com"
     servername: "suiany.makingirangreatagain.com"
 
+  - name: "🇹🇷 hamedp71 - ss"
+    type: ss
+    server: 62.133.63.21
+    port: 65262
+    cipher: chacha20-ietf-poly1305
+    password: "VGmbVSd6gEUvxvEx2aNA4q"
+
+  - name: "🇦🇲 Armenia - 1"
+    type: vless
+    server: 188.164.159.61
+    port: 2096
+    uuid: 12345678-1234-1234-1234-123456789123
+    network: ws
+    tls: true
+    udp: true
+    servername: vless.hubp.de
+    client-fingerprint: chrome
+    allowInsecure: true
+    ws-opts:
+      path: "/snippets"
+      headers:
+        Host: vless.hubp.de
+
+  - name: "hamedp71-🇵🇱-45"
+    type: ss
+    server: 217.30.10.70
+    port: 9050
+    cipher: aes-256-cfb
+    password: "FG5ddLsMPbV5CutE"
+    udp: true
+  - name: "hamedp71-🇵🇱-47"
+    type: ss
+    server: 217.30.10.70
+    port: 9057
+    cipher: aes-256-cfb
+    password: "wjTugX3ZtHMB9c3Z"
+    udp: true
+  - name: "hamedp71-🇵🇱-49"
+    type: ss
+    server: 217.30.10.70
+    port: 9033
+    cipher: aes-256-cfb
+    password: "UTJA57ypk2XKQpnm"
+    udp: true
+  - name: "hamedp71-🇵🇱-51"
+    type: ss
+    server: 217.30.10.70
+    port: 9003
+    cipher: aes-256-cfb
+    password: "JdmRK9gMEqFgs8nP"
+    udp: true
+  - name: "hamedp71-🇵🇱-52"
+    type: ss
+    server: 217.30.10.18
+    port: 9042
+    cipher: aes-256-cfb
+    password: "S7KwUu7yBy58S3Ga"
+    udp: true
+  - name: "hamedp71-🇵🇱-53"
+    type: ss
+    server: 217.30.10.18
+    port: 9027
+    cipher: aes-256-cfb
+    password: "EXN3S3eQpjE7EJu8"
+    udp: true
+  - name: "hamedp71-🇵🇱-55"
+    type: ss
+    server: 217.30.10.18
+    port: 9084
+    cipher: aes-256-cfb
+    password: "c3NtHJ5ujV2tGDfj"
+    udp: true
+  - name: "hamedp71-🇵🇱-60"
+    type: ss
+    server: 217.30.10.18
+    port: 9018
+    cipher: aes-256-cfb
+    password: "fG2artUmHfNT2cX7"
+    udp: true
+  - name: "hamedp71-🇵🇱-61"
+    type: ss
+    server: 217.30.10.70
+    port: 9070
+    cipher: aes-256-cfb
+    password: "bf7v334KKDV3YDhH"
+    udp: true
+  - name: "hamedp71-🇵🇱-62"
+    type: ss
+    server: 217.30.10.70
+    port: 9014
+    cipher: aes-256-cfb
+    password: "KnJGad3FqTvjqbaX"
+    udp: true
+  - name: "hamedp71-🇵🇱-63"
+    type: ss
+    server: 217.30.10.70
+    port: 9093
+    cipher: aes-256-cfb
+    password: "wfLC2y7rzZyCmuyt"
+    udp: true
+  - name: "hamedp71-🇵🇱-66"
+    type: ss
+    server: 217.30.10.18
+    port: 9046
+    cipher: aes-256-cfb
+    password: "NvS8N4Vf8qAGPSCL"
+    udp: true
+  - name: "hamedp71-🇵🇱-67"
+    type: ss
+    server: 217.30.10.70
+    port: 9046
+    cipher: aes-256-cfb
+    password: "NvS8N4Vf8qAGPSCL"
+    udp: true
+  - name: "hamedp71-🇵🇱-68"
+    type: ss
+    server: 217.30.10.18
+    port: 9040
+    cipher: aes-256-cfb
+    password: "p9z5BVADH2YFs3MN"
+    udp: true
+    
+  - name: "🇳🇱 hamedp71 - 1"
+    type: hysteria2
+    server: 206.71.158.37
+    port: 36300
+    password: "Yet-Another-Public-Config-1"
+    sni: "YAPC-1.afshin.ir"
+    obfs: salamander
+    obfs-password: "Yet-Another-Public-Config-1"
+    skip-cert-verify: false
+
+  - name: "🇳🇱 hamedp71 - 2"
+    type: hysteria2
+    server: 206.71.158.37
+    port: 35000
+    password: "Yet-Another-Public-Config-1"
+    sni: "YAPC-1.afshin.ir"
+    obfs: salamander
+    obfs-password: "Yet-Another-Public-Config-1"
+    skip-cert-verify: true
+
+  - name: "🇳🇱 hamedp71 - 3"
+    type: hysteria2
+    server: 206.71.158.37
+    port: 36600
+    password: "Yet-Another-Public-Config-1"
+    sni: "YAPC-1.afshin.ir"
+    obfs: salamander
+    obfs-password: "Yet-Another-Public-Config-1"
+    skip-cert-verify: true
+
+  - name: "🇳🇱 hamedp71 - 4"
+    type: hysteria2
+    server: 206.71.158.37
+    port: 35200
+    password: "Yet-Another-Public-Config-1"
+    sni: "YAPC-1.afshin.ir"
+    obfs: salamander
+    obfs-password: "Yet-Another-Public-Config-1"
+    skip-cert-verify: false
+
+  - name: "🇳🇱 hamedp71 - 5"
+    type: hysteria2
+    server: 206.71.158.37
+    port: 35000
+    password: "Yet-Another-Public-Config-1"
+    sni: "YAPC-1.afshin.ir"
+    obfs: salamander
+    obfs-password: "Yet-Another-Public-Config-1"
+    skip-cert-verify: false
+
+  - name: "🇳🇱 hamedp71 - 6"
+    type: hysteria2
+    server: 81.168.83.89
+    port: 2083
+    password: "YwuvGJk36B"
+    sni: ""
+    obfs: salamander
+    obfs-password: "khameniiko@smad@ret"
+    skip-cert-verify: true
+
+  - name: "🇺🇸 hamedp71 - 8"
+    type: hysteria2
+    server: 108.165.213.197
+    port: 23891
+    password: "c232f411-96b5-4b07-b2f7-66a434725ffb"
+    sni: "fus01.mistea.top"
+    skip-cert-verify: true
+
+  - name: "🇬🇧 hamedp71 - 9"
+    type: hysteria2
+    server: yapc-1.adamhayward.co.uk
+    port: 35000
+    password: "Yet-Another-Public-Config-1"
+    sni: "YAPC-1.afshin.ir"
+    obfs: salamander
+    obfs-password: "Yet-Another-Public-Config-1"
+    skip-cert-verify: true
+
+  - name: "hamedp71-🇳🇱-2"
+    type: hysteria2
+    server: net2025.afsharidempire.uk
+    port: 30205
+    password: 8864aa9f-7517-4fd5-aef1-32050eb3095d
+    sni: net2025.afsharidempire.uk
+    obfs: salamander
+    obfs-password: GdQ4bgvT8RFwuWi2
+    
+  - name: "🇳🇱 NL-hysteria"
+    type: hysteria
+    server: 109.104.153.91
+    port: 37519
+    ports: 10000-20000
+    auth_str: dongtaiwang.com
+    alpn:
+    - h3
+    sni: apple.com
+    skip-cert-verify: true
+    up: 11 Mbps
+    down: 55 Mbps
+
+  - name: "hamedp71-🇫🇷-2"
+    type: hysteria2
+    server: 51.159.111.32
+    port: 5355
+    password: dongtaiwang.com
+    sni: www.bing.com
+    skip-cert-verify: true
+
   - name: "🇩🇪 hamedp71"
     type: wireguard
     ip: "100.80.234.177/32"
@@ -95,33 +337,6 @@ proxies:
     server: "94.242.50.185"
     port: 443
     public-key: "Yom91OWyt0otz1S4hgQMhp1q1y8tpDvUWwVkNXpmpjc="
-    pre-shared-key: "N/gfMZSjvP8mbXfVP2hnD5CX8BkGvOyheJ67mCpD+QQ="
-    dns: ["10.255.255.2"]
-    allowed-ips: ["0.0.0.0/0", "::/0"]
-    reserved: "AAAA"
-    udp: true
-    mtu: 1280
-    persistent-keepalive: 25
-    dialer-proxy: ""
-    amnezia-wg-option:
-      jc: 4
-      jmin: 40
-      jmax: 75
-      s1: 0
-      s2: 0
-      h1: 1
-      h2: 2
-      h3: 3
-      h4: 4
-
-  - name: "🇩🇪 hamedp71 2"
-    type: wireguard
-    ip: "100.80.234.177/32"
-    ipv6: "2001:db8:1::1/128"
-    private-key: "cIq+3tcHVT7gRMl4kIv0WE68ERiTmDtA7rhyHhLJ/mg="
-    server: "185.189.163.176"
-    port: 443
-    public-key: "dAAkV3G3YFurH3+3198clav9vlh4FxB1asqNc0tLeCk="
     pre-shared-key: "N/gfMZSjvP8mbXfVP2hnD5CX8BkGvOyheJ67mCpD+QQ="
     dns: ["10.255.255.2"]
     allowed-ips: ["0.0.0.0/0", "::/0"]
@@ -1027,32 +1242,6 @@ proxies:
       h3: 3
       h4: 4
 
-  - name: "🇷🇺 hamedp71"
-    type: wireguard
-    ip: "100.80.234.177/32"
-    ipv6: ""
-    private-key: "cIq+3tcHVT7gRMl4kIv0WE68ERiTmDtA7rhyHhLJ/mg="
-    server: "188.124.42.116"
-    port: 443
-    public-key: "gLPWBcPANL0mgwEkImb6PUJmR2ncz7S9DKIDDYvgJkk="
-    pre-shared-key: "N/gfMZSjvP8mbXfVP2hnD5CX8BkGvOyheJ67mCpD+QQ="
-    dns: ["10.255.255.2"]
-    allowed-ips: ["0.0.0.0/0", "::/0"]
-    reserved: "AAAA"
-    udp: true
-    mtu: 1280
-    dialer-proxy: ""
-    amnezia-wg-option:
-      jc: 4
-      jmin: 40
-      jmax: 70
-      s1: 0
-      s2: 0
-      h1: 1
-      h2: 2
-      h3: 3
-      h4: 4
-
   - name: "🇷🇺 hamedp71-1"
     type: wireguard
     ip: "100.80.234.177/32"
@@ -1521,6 +1710,600 @@ proxies:
       h4: 3
       h3: 4
 
+#NL
+  - name: "🇳🇱 1 hamedp71 - Vless"
+    type: vless
+    server: braze.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 2 hamedp71 - Vless"
+    type: vless
+    server: vinted.fr
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 3 hamedp71 - Vless"
+    type: vless
+    server: indeed.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 4 hamedp71 - Vless"
+    type: vless
+    server: economist.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 5 hamedp71 - Vless"
+    type: vless
+    server: autotrader.co.uk
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 6 hamedp71 - Vless"
+    type: vless
+    server: ico.org.uk
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 7 hamedp71 - Vless"
+    type: vless
+    server: thailandnet65.ir
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 8 hamedp71 - Vless"
+    type: vless
+    server: tgju.org
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 9 hamedp71 - Vless"
+    type: vless
+    server: cdnjs.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 10 hamedp71 - Vless"
+    type: vless
+    server: npmjs.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 11 hamedp71 - Vless"
+    type: vless
+    server: nodejs.org
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 12 hamedp71 - Vless"
+    type: vless
+    server: fonts.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 13 hamedp71 - Vless"
+    type: vless
+    server: w3.org
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 14 hamedp71 - Vless"
+    type: vless
+    server: bluehost.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 15 hamedp71 - Vless"
+    type: vless
+    server: ahrefs.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 16 hamedp71 - Vless"
+    type: vless
+    server: chatgpt.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 17 hamedp71 - Vless"
+    type: vless
+    server: codepen.io
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 18 hamedp71 - Vless"
+    type: vless
+    server: hubspot.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 19 hamedp71 - Vless"
+    type: vless
+    server: surfiran.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 20 hamedp71 - Vless"
+    type: vless
+    server: tappersia.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 21 hamedp71 - Vless"
+    type: vless
+    server: didnegar.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 22 hamedp71 - Vless"
+    type: vless
+    server: ihiran.ir
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 23 hamedp71 - Vless"
+    type: vless
+    server: vandiet.ir
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 24 hamedp71 - Vless"
+    type: vless
+    server: check-host.net
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 25 hamedp71 - Vless"
+    type: vless
+    server: db-ip.com
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 26 hamedp71 - Vless"
+    type: vless
+    server: hunter.io
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+  - name: "🇳🇱 27 hamedp71 - Vless"
+    type: vless
+    server: mvps.net
+    port: 443
+    uuid: 7d18fc67-1994-4f7e-8ff8-c024223f33bb
+    tls: true
+    network: ws
+    servername: revcloud.migacpi.org
+    client-fingerprint: chrome
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/cbde4058-6b81-432b-8689-dd7ce10e479c"
+      headers:
+        Host: revcloud.migacpi.org
+      max-early-data: 2560
+      early-data-header-name: Sec-WebSocket-Protocol
+
+  - name: "🇩🇪 Direct-VLESS"
+    type: vless
+    server: hdfynpv2d1.makingirangreatagain.com
+    port: 443
+    uuid: e959d53c-91e9-459d-a332-d59ae89b3b4c
+    packet-encoding: xudp
+    ip-version: ipv4
+    tls: true
+    network: ws
+    tfo: true
+    mptcp: true
+    servername: hdfynpv2d1.makingirangreatagain.com
+    alpn: ["http/1.1"]
+    client-fingerprint: chrome
+    skip-cert-verify: true
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/Iyq035lnud9R8ruNNrqGxZZ2"
+      headers:
+        Host: hdfynpv2d1.makingirangreatagain.com
+      max-early-data: 2048
+      early-data-header-name: Sec-WebSocket-Protocol
+
+  - name: "🇩🇪 AD-CDN-VLESS"
+    type: vless
+    server: hdfynpv2c1.farvaharforever.com
+    port: 443
+    uuid: e959d53c-91e9-459d-a332-d59ae89b3b4c
+    packet-encoding: xudp
+    ip-version: ipv4
+    tls: true
+    network: ws
+    tfo: true
+    mptcp: true
+    servername: hdfynpv2c1.farvaharforever.com
+    alpn: ["http/1.1"]
+    client-fingerprint: chrome
+    skip-cert-verify: true
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/Iyq035lnud9R8ruNNrqGxZZ2"
+      headers:
+        Host: hdfynpv2c1.farvaharforever.com
+      max-early-data: 2048
+      early-data-header-name: Sec-WebSocket-Protocol
+
+  - name: "🇩🇪 Telegram-VLESS"
+    type: vless
+    server: hdfynpv2d1.farvaharforever.com
+    port: 443
+    uuid: e959d53c-91e9-459d-a332-d59ae89b3b4c
+    packet-encoding: xudp
+    ip-version: ipv4
+    tls: true
+    network: ws
+    tfo: true
+    mptcp: true
+    servername: hdfynpv2d1.farvaharforever.com
+    alpn: ["http/1.1"]
+    client-fingerprint: chrome
+    skip-cert-verify: true
+    fragment:
+      packets: tlshello
+      length: '10-20'
+      interval: '10-20'
+    ws-opts:
+      path: "/Iyq035lnud9R8ruNNrqGxZZ2"
+      headers:
+        Host: hdfynpv2d1.farvaharforever.com
+      max-early-data: 2048
+      early-data-header-name: Sec-WebSocket-Protocol
+
+#Arista
 #Rayan
 #BPB
 #Game
@@ -1529,20 +2312,78 @@ proxy-groups:
   - name: "💚خانه"
     type: select
     proxies: 
+      - "اختصاصی ❤️ خودکار"
       - "🤍 وارپ"
-      - "🔁 (اتصال پایدار)"
-      - "انتخاب دستی"
+      - "🔗 پایدار"
+      - "🇩🇪 ShadowTLS-Proxy"
       - "🇩🇪 anytls-443"
-      - DIRECT
-    
-  - name: "🤍 وارپ"
+      - "hamedp71-🇳🇱-2"
+      - "hamedp71-🇫🇷-2"
+      - "🇳🇱 hamedp71 - 1"
+      - "🇳🇱 hamedp71 - 2"
+      - "🇳🇱 hamedp71 - 3"
+      - "🇳🇱 hamedp71 - 4"
+      - "🇳🇱 hamedp71 - 5"
+      - "🇳🇱 hamedp71 - 6"
+      - "🇺🇸 hamedp71 - 8"
+      - "🇬🇧 hamedp71 - 9"
+      - "🇹🇷 hamedp71 - ss"
+      - "🇦🇲 Armenia - 1"
+      - "hamedp71-🇵🇱-45"
+      - "hamedp71-🇵🇱-47"
+      - "hamedp71-🇵🇱-49"
+      - "hamedp71-🇵🇱-51"
+      - "hamedp71-🇵🇱-52"
+      - "hamedp71-🇵🇱-53"
+      - "hamedp71-🇵🇱-55"
+      - "hamedp71-🇵🇱-60"
+      - "hamedp71-🇵🇱-61"
+      - "hamedp71-🇵🇱-62"
+      - "hamedp71-🇵🇱-63"
+      - "hamedp71-🇵🇱-66"
+      - "hamedp71-🇵🇱-67"
+      - "hamedp71-🇵🇱-68"
+
+  - name: "اختصاصی ❤️ خودکار"
     type: url-test
     url: "http://www.gstatic.com/generate_204"
-    interval: 120
-    tolerance: 50
+    interval: 150
+    tolerance: 60
+    proxies:
+      - "🇳🇱 hamedp71 - 1"
+      - "🇳🇱 hamedp71 - 2"
+      - "🇳🇱 hamedp71 - 3"
+      - "🇳🇱 hamedp71 - 4"
+      - "🇳🇱 hamedp71 - 5"
+      - "🇳🇱 hamedp71 - 6"
+      - "🇺🇸 hamedp71 - 8"
+      - "🇬🇧 hamedp71 - 9"
+      - "hamedp71-🇳🇱-2"
+      - "hamedp71-🇫🇷-2"
+      - "🇹🇷 hamedp71 - ss"
+      - "🇦🇲 Armenia - 1"
+      - "hamedp71-🇵🇱-45"
+      - "hamedp71-🇵🇱-47"
+      - "hamedp71-🇵🇱-49"
+      - "hamedp71-🇵🇱-51"
+      - "hamedp71-🇵🇱-52"
+      - "hamedp71-🇵🇱-53"
+      - "hamedp71-🇵🇱-55"
+      - "hamedp71-🇵🇱-60"
+      - "hamedp71-🇵🇱-61"
+      - "hamedp71-🇵🇱-62"
+      - "hamedp71-🇵🇱-63"
+      - "hamedp71-🇵🇱-66"
+      - "hamedp71-🇵🇱-67"
+      - "hamedp71-🇵🇱-68"
+
+  - name: "🤍 وارپ"
+    type: url-test
+    url: "http://cp.cloudflare.com"
+    interval: 60
+    tolerance: 90
     proxies:
       - "🇩🇪 hamedp71"
-      - "🇩🇪 hamedp71 2"
       - "🇦🇹 hamedp71"
       - "🇦🇺 hamedp71-1"
       - "🇦🇺 hamedp71-2"
@@ -1577,7 +2418,6 @@ proxy-groups:
       - "🇳🇴 hamedp71"
       - "🇳🇿 hamedp71"
       - "🇵🇦 hamedp71"
-      - "🇷🇺 hamedp71"
       - "🇷🇺 hamedp71-1"
       - "🇷🇺 hamedp71-2"
       - "🇸🇪 hamedp71"
@@ -1597,128 +2437,38 @@ proxy-groups:
       - "🇿🇦 hamedp71 1"
       - "🇿🇦 hamedp71"
 
-  - name: "🔁 (اتصال پایدار)"
+  - name: "🔗 پایدار"
     type: fallback
-    url: "http://www.gstatic.com/generate_204"
+    url: "http://www.google.com/generate_204"
     interval: 300
     proxies:
-      - "🇩🇪 hamedp71"
-      - "🇩🇪 hamedp71 2"
-      - "🇦🇹 hamedp71"
-      - "🇦🇺 hamedp71-1"
-      - "🇦🇺 hamedp71-2"
-      - "🇦🇺 hamedp71-3"
-      - "🇦🇺 hamedp71-4"
-      - "🇦🇺 hamedp71-5"
-      - "🇦🇺 hamedp71"
-      - "🇦🇺 hamedp71-6"
-      - "🇧🇦 hamedp71"
-      - "🇨🇦 hamedp71-1"
-      - "🇨🇦 hamedp71-2"
-      - "🇨🇦 hamedp71-3"
-      - "🇨🇦 hamedp71-4"
-      - "🇨🇭 hamedp71-1"
-      - "🇨🇾 hamedp71"
-      - "🇨🇿 hamedp71"
-      - "🇨🇿 hamedp71-1"
-      - "🇫🇷 hamedp71"
-      - "🇫🇷 hamedp71-1"
-      - "🇬🇧 hamedp71"
-      - "🇭🇰 hamedp71"
-      - "🇮🇸 hamedp71"
-      - "🇮🇸 hamedp71-1"
-      - "🇮🇸 hamedp71-2"
-      - "🇮🇪 hamedp71"
-      - "🇰🇪 hamedp71"
-      - "🇱🇹 hamedp71"
-      - "🇱🇺 hamedp71"
-      - "🇲🇰 hamedp71"
-      - "🇳🇱 hamedp71-1"
-      - "🇳🇱 hamedp71-2"
-      - "🇳🇴 hamedp71"
-      - "🇳🇿 hamedp71"
-      - "🇵🇦 hamedp71"
-      - "🇷🇺 hamedp71"
-      - "🇷🇺 hamedp71-1"
-      - "🇷🇺 hamedp71-2"
-      - "🇸🇪 hamedp71"
-      - "🇹🇼 hamedp71"
-      - "🇸🇬 hamedp71"
-      - "🇸🇬 hamedp71 1"
-      - "🇺🇸 hamedp71 2"
-      - "🇺🇸 hamedp71 3"
-      - "🇺🇸 hamedp71 4"
-      - "🇺🇸 hamedp71 5"
-      - "🇺🇸 hamedp71 6"
-      - "🇺🇸 hamedp71 7"
-      - "🇺🇸 hamedp71 8"
-      - "🇺🇸 hamedp71 9"
-      - "🇺🇸 hamedp71"
-      - "🇻🇳 hamedp71"
-      - "🇿🇦 hamedp71 1"
-      - "🇿🇦 hamedp71"
-
-  - name: "انتخاب دستی"
-    type: select
-    url: "http://www.gstatic.com/generate_204"
-    interval: 600
-    proxies: 
-      - "🇩🇪 hamedp71"
-      - "🇩🇪 hamedp71 2"
-      - "🇦🇹 hamedp71"
-      - "🇦🇺 hamedp71-1"
-      - "🇦🇺 hamedp71-2"
-      - "🇦🇺 hamedp71-3"
-      - "🇦🇺 hamedp71-4"
-      - "🇦🇺 hamedp71-5"
-      - "🇦🇺 hamedp71"
-      - "🇦🇺 hamedp71-6"
-      - "🇧🇦 hamedp71"
-      - "🇨🇦 hamedp71-1"
-      - "🇨🇦 hamedp71-2"
-      - "🇨🇦 hamedp71-3"
-      - "🇨🇦 hamedp71-4"
-      - "🇨🇭 hamedp71-1"
-      - "🇨🇾 hamedp71"
-      - "🇨🇿 hamedp71"
-      - "🇨🇿 hamedp71-1"
-      - "🇫🇷 hamedp71"
-      - "🇫🇷 hamedp71-1"
-      - "🇬🇧 hamedp71"
-      - "🇭🇰 hamedp71"
-      - "🇮🇸 hamedp71"
-      - "🇮🇸 hamedp71-1"
-      - "🇮🇸 hamedp71-2"
-      - "🇮🇪 hamedp71"
-      - "🇰🇪 hamedp71"
-      - "🇱🇹 hamedp71"
-      - "🇱🇺 hamedp71"
-      - "🇲🇰 hamedp71"
-      - "🇳🇱 hamedp71-1"
-      - "🇳🇱 hamedp71-2"
-      - "🇳🇴 hamedp71"
-      - "🇳🇿 hamedp71"
-      - "🇵🇦 hamedp71"
-      - "🇷🇺 hamedp71"
-      - "🇷🇺 hamedp71-1"
-      - "🇷🇺 hamedp71-2"
-      - "🇸🇪 hamedp71"
-      - "🇹🇼 hamedp71"
-      - "🇸🇬 hamedp71"
-      - "🇸🇬 hamedp71 1"
-      - "🇺🇸 hamedp71 2"
-      - "🇺🇸 hamedp71 3"
-      - "🇺🇸 hamedp71 4"
-      - "🇺🇸 hamedp71 5"
-      - "🇺🇸 hamedp71 6"
-      - "🇺🇸 hamedp71 7"
-      - "🇺🇸 hamedp71 8"
-      - "🇺🇸 hamedp71 9"
-      - "🇺🇸 hamedp71"
-      - "🇻🇳 hamedp71"
-      - "🇿🇦 hamedp71 1"
-      - "🇿🇦 hamedp71"
-
+      - "🇳🇱 hamedp71 - 1"
+      - "🇳🇱 hamedp71 - 2"
+      - "🇳🇱 hamedp71 - 3"
+      - "🇳🇱 hamedp71 - 4"
+      - "🇳🇱 hamedp71 - 5"
+      - "🇳🇱 hamedp71 - 6"
+      - "🇺🇸 hamedp71 - 8"
+      - "🇬🇧 hamedp71 - 9"
+      - "hamedp71-🇳🇱-2"
+      - "hamedp71-🇫🇷-2"
+      - "🇹🇷 hamedp71 - ss"
+      - "🇦🇲 Armenia - 1"
+      - "hamedp71-🇵🇱-45"
+      - "hamedp71-🇵🇱-47"
+      - "hamedp71-🇵🇱-49"
+      - "hamedp71-🇵🇱-51"
+      - "hamedp71-🇵🇱-52"
+      - "hamedp71-🇵🇱-53"
+      - "hamedp71-🇵🇱-55"
+      - "hamedp71-🇵🇱-60"
+      - "hamedp71-🇵🇱-61"
+      - "hamedp71-🇵🇱-62"
+      - "hamedp71-🇵🇱-63"
+      - "hamedp71-🇵🇱-66"
+      - "hamedp71-🇵🇱-67"
+      - "hamedp71-🇵🇱-68"
+      
 rule-providers:
   malware:
     type: http
@@ -1791,6 +2541,6 @@ rules:
 
 ntp:
   enable: true
-  server: pool.ntp.org
+  server: time.cloudflare.com
   port: 123
   interval: 30
